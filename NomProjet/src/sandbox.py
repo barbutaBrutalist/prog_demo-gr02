@@ -1,45 +1,78 @@
-# # taille: int = 5
-# # tourX: bool = True
-# # damier: str = ""
+import random
 
-# # for i in range(taille):
-# #     for j in range(taille):
-# #         if tourX:
-# #             print("X", end="")
-# #         else:  
-# #             print("O", end="")
-# #         tourX = not tourX
-# #     damier += "\n"
+def lancerDe() -> int:
+    """
+    Lance un dé qui roule un nombre de 1 à 6 aléatoirement
+    """
+    return random.randint(1, 6)
 
-# # print(damier, end="")
+def aDepasse() -> bool:
+    """
+    Reçoit un score. Si le score dépasse 11, retourne vrai. Sinon, faux.
+    """
+    if score > 11: 
+        return True
+    else: return False
+
+def validerActionJoueur() -> str:
+    """
+    regarde si la réponse de l'utilisateur sera rien, un R (minuscule ou non), ou quelque chose d'autre.
+    si rien, relancer le dé.
+    si R, rester.
+    quoique ce soit d'autre, erreur, et répéter.
+    """
+    
+
+    reponse = False    
+        
+    while reponse == False:
+        reponse: str = (input("Voulez vous continuer à rouler (Entrez), ou rester? (R): "))
+        reponse.lower()
+        
+        if reponse == "r":
+            reponse = True
+        elif reponse == "":
+            reponse = True
+        else: print("Réponse invalide! Souhaitez-vous continuer à rouler? (Enter pour continuer, R pour rester): ")
+
+    
+    reponse.lower()
+
+validerActionJoueur()
+# def tourJoueur()
 
 
 
-# import random
-
-# die: int = 0
-# points: int = 1
-# continuer: bool = True
-# reponseContinuer: str
-
-# while die != 1 and continuer:
-#     die = random.randint(1, 6)
-#     if die == 6:
-#         points *= 2
-#     else: points += 1
-#     print(f"Résultat du dé: ", die, "\nPoints total: ", points)
-#     if die != 1:
-#         reponseContinuer = input("Voulez-vous continuer? O/N ")
-#         continuer = reponseContinuer == "O" or reponseContinuer == "o"
-
-# if die == 1:
-#     print(f"Partie Perdue! Points final: {points}")
+# def tourCroupier()
 
 
-#print des chiffres de 1 à 10 une à une
 
-i: int = 1
+# def afficherResultatManche()
 
-while i <= 11:
-    print(i)
-    i += 1
+
+
+# def determinerResultat()
+
+
+
+# def validerRejouer()
+
+
+
+# def calculerTauxVictoire()
+
+
+
+# def afficherStatistiques()
+
+
+# aDepasse
+
+
+# Reçoit un score, retourne vrai si le score dépasse 11, faux sinon.
+
+# Tests :
+
+#     Avec 10, donne False
+#     Avec 11, donne False
+#     Avec 12, donne True
