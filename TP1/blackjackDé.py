@@ -6,15 +6,19 @@ ANSI_RED: str = "\u001B[31m"
 ANSI_BLUE: str = "\u001B[34m"
 ANSI_GREEN: str = "\u001B[32m"
 
+mise: int = 5
+
 def lancerDe() -> int:
     """
-    Lance un dé qui roule de 1 à 6.
+    lance un dé qui roule de 1 à 6.
+    retourne le résultat.
     """
     return random.randint(1,6)
 
 def aDepasse(score) -> bool:
     """
     reçoit un score. si le score dépasse 11, retourne vrai. sinon, faux.
+    retourne la valeur vraie ou fausse du "bust".
     """
     bust: bool = False
     
@@ -53,7 +57,7 @@ def tourJoueur() -> int:
     score: int = 0
 
     while enjeu:
-        print() # saute une ligne pour le rendre beau.
+        print() # saute une ligne pour le rendre beau. chaque saut de ligne vide sera pour cette raison.
         print(f"Votre score: {score}")
         action = validerActionJoueur()
         if action == "Relancer":
@@ -74,6 +78,7 @@ def tourCroupier() -> int:
     fait lancer le croupier automatiquement tant que son score est inférieur à 9, affiche chaque lancer.
     retourne le score final.
     un delai est ajouté pour un effet dynamique.
+    retourne le score final du croupier.
     """
     score: int = 0
     
@@ -91,7 +96,7 @@ def tourCroupier() -> int:
 def afficherResultatManche(scoreJoueur, scoreCroupier, mise) -> str:
     """
     reçoit le score du joueur, du croupier et le montant de la mise.
-    affiche le message de fin de manche, incluant les scores et l'effet sur la mise.
+    retourne et affiche le message de fin de manche, incluant les scores et l'effet sur la mise.
     """
     print()
     print(f"Votre score: {scoreJoueur} | Score du croupier: {scoreCroupier}")
@@ -168,7 +173,7 @@ def afficherStatistiques(manches, victoires, defaites, egalites) -> None:
 def jeu() -> None:
     """
     a boucle principale du jeu. la plus compliquée aussi..
-    
+    retourne rien, c'est la boucle.
     """
     boucleDeJeu: bool = True
     argent: int = 15
@@ -176,7 +181,6 @@ def jeu() -> None:
     defaites: int = 0
     egalites: int = 0
     manches: int = 0
-    mise: int = 5
     
 
     while boucleDeJeu:
